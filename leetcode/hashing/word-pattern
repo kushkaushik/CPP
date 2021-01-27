@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool wordPattern(string p, string s) {
+        vector<string>st;
+        stringstream ss(s);
+        string word;
+        while(ss>>word){
+            st.push_back(word);
+        }
+        if(p.size()!=st.size())
+            return false;
+        
+        set<string>set1;
+        unordered_map<char,string>mp;
+        for(int i =0;i<p.size();i++){
+            char c = p[i];
+            if(mp.find(c)!=mp.end()){
+                if(mp[c]!=st[i])
+                    return false;
+            }
+            else{
+               if(set1.count(st[i]) > 0)return false;
+                mp[c] = st[i];
+                set1.insert(st[i]);
+            }
+            
+        }
+        return true;
+        
+    }
+};
