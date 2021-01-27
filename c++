@@ -1,0 +1,19 @@
+Day 2 Nth Natural Number:
+class Solution{
+	public:
+    	long long findNth(long long N)
+    {
+      long long dig10 = 0;
+      long long dig9 = N;
+      long long pos  = 1;
+      while(dig9>0){
+          dig10 +=pos * (dig9%9);
+          dig9/=9;
+          pos*=10;
+      }
+      return dig10;
+      
+        
+      
+    }
+};
