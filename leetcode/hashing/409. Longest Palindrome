@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        unordered_map<char,int>um;
+        for(auto x:s)
+            um[x]++;
+        int flag = 0;int c= 0;
+        for(auto x:um){
+            if(x.second%2!=1){
+                c+=x.second;
+            }else
+            {
+                c+=(x.second-1);
+                flag  = 1;
+            }
+        }
+        return c+flag;
+    }
+};
