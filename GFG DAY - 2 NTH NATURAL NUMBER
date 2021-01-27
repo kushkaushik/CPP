@@ -1,4 +1,4 @@
-Day 2 Nth Natural Number:
+//Day 2 Nth Natural Number:
 class Solution{
 	public:
     	long long findNth(long long N)
