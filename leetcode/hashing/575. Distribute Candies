@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int distributeCandies(vector<int>& c) {
+        unordered_map<int,int>mp;
+        int n = c.size();
+        for(auto x:c)
+            mp[x]++;
+       return (mp.size()>n/2)?n/2:mp.size();
+    }
+};
