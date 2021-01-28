@@ -17,3 +17,23 @@ public:
     
         }
 };
+
+////
+
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+       if(nums.size() == 0)
+           return 1;
+        unordered_set<int>us(nums.begin(),nums.end());
+        int temp =-1;
+        int i;
+        for( i = 1;i<=nums.size();i++){
+            if(us.find(i) == us.end())
+                {temp = i;break;}
+        }
+             if(temp == -1)
+                 return i;
+                return temp;
+    }
+};
