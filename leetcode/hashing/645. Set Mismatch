@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& v) {
+        // unordered_map<int,bool>mp;
+ unordered_set<int>us(v.begin(),v.end());
+    vector<int>res;
+    unordered_map<int,int>mp;
+        for(auto x:v)
+            mp[x]++;
+        for(auto x:mp){
+            if(x.second == 2)
+                res.push_back(x.first);
+        }
+        
+        for(int i =1;i<=v.size();i++){
+            if(us.find(i) == us.end())
+            {
+                
+                res.push_back(i);
+                
+            } 
+        }
+        if(res.size() == 0)
+            return {0,0};
+        return res;
+    }
+};
