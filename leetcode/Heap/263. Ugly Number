@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool isUgly(int num) {
+     
+        int helper = help(num);
+        return helper ==1;
+    }
+    
+    int help(int n){
+        if(n == 1)
+            return 1;
+        if(n<=0)
+            return 0;
+        if(n%2 == 0)
+            return help(n/2);
+        if(n%3 ==0 )
+            return help(n/3);
+        if(n%5 == 0)
+            return help(n/5);
+        return 0;
+        
+    }
+    
+};
