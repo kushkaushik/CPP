@@ -1,0 +1,44 @@
+class Solution {
+public:
+    vector<vector<int>> kSmallestPairs(vector<int>& v1, vector<int>& v2, int k) {
+        priority_queue<pair<int,pair<int,int>>>pq;
+int j =0;
+// int k = 3;
+for(int i =0;i<v1.size();i++){
+    while(j<v2.size()){
+        if(pq.size()<k)
+        pq.push({v1[i]+v2[j],{v1[i],v2[j]}});
+
+        else{
+            if(pq.top().first <= (v1[i]+v2[j]))
+              {j++;  continue;}
+            else
+            {
+                pq.pop();
+                pq.push({v1[i]+v2[j],{v1[i],v2[j]}});
+
+            }
+            
+        }
+
+        j++;
+    }j = 0;
+    }
+
+vector<vector<int>>res;
+while(pq.empty() == false){
+vector<int>temp;
+pair<int,int>vp = pq.top().second;
+    temp.push_back(vp.first);
+    temp.push_back(vp.second);
+    res.push_back(temp);
+pq.pop();
+}
+
+
+for(auto x:res)
+    for(auto j:x)
+        cout<<j<<" ";
+return res;
+    }
+};
