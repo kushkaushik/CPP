@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> kWeakestRows(vector<vector<int>>& v, int k) {
+        
+       vector<int>res;
+    // int k = 3;
+vector<pair<int,int>>vp;
+    for(int i=0;i<v.size();i++){
+        int c = 0;
+        for(int j=0;j<v[i].size();j++)
+            if(v[i][j] == 1)
+            c++;
+
+        vp.push_back({c,i});
+
+        
+    }
+sort(vp.begin(),vp.end());
+int x= 0;
+while(k--)
+{
+    res.push_back(vp[x++].second);
+
+}
+for(auto x:res)
+cout<<x<<" ";
+
+return res;   
+    
+    }
+};
