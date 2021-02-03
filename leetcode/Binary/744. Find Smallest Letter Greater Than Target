@@ -1,0 +1,18 @@
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& l, char target) {
+int n  = l.size();
+        if(target>=l[n-1])
+            return l[0];
+        char ans;
+        for(auto x:l)
+        {
+            if(target<x)
+               { ans = x;
+                    break;
+                }   
+        }
+        return ans;
+        
+        }
+};
