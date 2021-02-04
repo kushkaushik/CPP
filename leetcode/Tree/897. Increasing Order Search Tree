@@ -1,0 +1,25 @@
+
+class Solution {
+public:
+    vector<int>res;
+        
+    void helper(TreeNode* root){
+        if(root!=NULL){
+            helper(root->left);
+            res.push_back(root->val);
+            helper(root->right);
+            
+        }
+    }
+    TreeNode* increasingBST(TreeNode* root) {
+        helper(root);
+        TreeNode *temp = new TreeNode();
+        TreeNode *curr = temp;
+        for(auto x:res){
+         curr->right = new TreeNode(x);
+            curr = curr->right;
+        }
+        
+        return temp->right;
+    }
+};
