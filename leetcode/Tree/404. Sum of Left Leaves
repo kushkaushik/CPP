@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int sum =0;
+    void helper(TreeNode *root,int r)
+    {
+  if(!root)
+      return;
+        
+        if(r == 0 && !root->left && !root->right)
+           { sum+=root->val;
+                   return;     }      
+        
+       helper(root->left,0);
+        helper(root->right,1);
+        
+    }
+    
+    
+    int sumOfLeftLeaves(TreeNode* root) {
+    
+        helper(root,2);
+        return sum;
+        
+    }
+};
