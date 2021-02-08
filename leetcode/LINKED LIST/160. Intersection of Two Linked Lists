@@ -1,0 +1,19 @@
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+     if(headA == NULL || headB == NULL)
+         return NULL;
+        unordered_map<ListNode*,int>un;
+        while(headA!=nullptr){
+            un[headA]++;
+            headA = headA->next;
+        }
+        ListNode* temp;
+        while(headB!=nullptr){
+            if(un.find(headB)!=un.end())
+                return headB;
+            headB = headB->next;
+        }
+        return nullptr;
+    }
+};
