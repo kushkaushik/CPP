@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        string s= "";
+        while(head!=nullptr){
+            s+=to_string(head->val);
+            head = head->next;
+        }
+      int j = std::stoi(s,0,2);
+        cout<<j;
+        return j;
+        
+    }
+};
