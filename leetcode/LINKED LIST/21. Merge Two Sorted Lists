@@ -1,0 +1,35 @@
+class Solution {
+public:
+    ListNode* call(ListNode* head,int x){
+        if(head == nullptr)
+            return new ListNode(x);
+        ListNode *make = head;
+        while(make->next){
+            make = make->next;
+        }
+        ListNode* tp = new ListNode(x);
+        make->next = tp;
+        tp->next = nullptr;
+        return head;
+    }
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        vector<int>v;
+        while(l1!=nullptr){
+            v.push_back(l1->val);
+                l1 = l1->next;
+        }
+        while(l2!=nullptr)
+        {
+            v.push_back(l2->val);
+                l2 = l2->next;
+        }
+        
+        sort(v.begin(),v.end());
+        ListNode *temp = nullptr;
+        for(int i =0;i<v.size();i++)
+        {
+            temp = call(temp,v[i]);
+        }
+        return temp;
+    }
+};
