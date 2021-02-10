@@ -1,0 +1,32 @@
+class Solution {
+public:
+    
+    ListNode *help(ListNode *head,int d){
+        if(head == NULL)
+            return new ListNode(d);
+        ListNode *temp = new ListNode(d);
+        ListNode *tp  = head;
+        while(tp->next!=NULL){
+            tp = tp->next;
+        }
+        tp->next = temp;
+        temp->next = NULL;
+        return head;
+    }
+    
+    ListNode* insertionSortList(ListNode* head) {
+        vector<int>v;
+        while(head!=NULL){
+            v.push_back(head->val);
+            head = head->next;
+        }
+        
+        ListNode *root = NULL;
+        sort(v.begin(),v.end());
+        for(auto x:v){
+            root = help(root,x);
+            
+        }
+        return root;
+    }
+};
