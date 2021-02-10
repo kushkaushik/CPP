@@ -1,0 +1,35 @@
+class Solution {
+public:
+    ListNode* rev(ListNode* head){
+        ListNode* curr = head,*prev = NULL,*next;
+        while(curr!=NULL){
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+    
+    vector<int> nextLargerNodes(ListNode* head) {
+        ListNode *temp = rev(head);
+        ListNode *x = temp->next;
+        stack<int>st;
+        vector<int>v;
+        v.push_back(0);
+        st.push(temp->val);
+        while(x!=NULL){
+            while(!st.empty() && st.top()<=x->val){
+                st.pop();
+            }
+            int temp = st.empty()?0:st.top();
+            v.push_back(temp);
+            st.push(x->val);
+           
+            x = x->next;
+            
+        }
+        reverse(v.begin(),v.end());
+        return v;
+    }
+};
