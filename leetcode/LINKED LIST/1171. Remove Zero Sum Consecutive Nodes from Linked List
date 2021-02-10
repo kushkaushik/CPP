@@ -1,0 +1,47 @@
+class Solution {
+public:
+    
+    ListNode *help(ListNode* root, int x){
+        if(root == NULL)
+            return new ListNode(x);
+        ListNode *temp = root;
+        ListNode *tp = new ListNode(x);
+        while(temp->next!=NULL){
+            temp = temp->next;
+        }
+        temp->next = tp;
+        tp->next = NULL;
+        return root;
+    }
+    
+    ListNode* removeZeroSumSublists(ListNode* head) {
+       vector<int>v;
+        while(head!=NULL){
+            v.push_back(head->val);
+            head = head->next;
+        }
+       int sum;int j;
+       for(int i =0;i<v.size();i++){
+           sum =0;
+           for(j =i;j<v.size();j++){
+               sum+=v[j];
+               if(sum == 0)
+                   break;
+           }
+           if(sum == 0)
+           {    v.erase(v.begin()+i,v.begin()+j+1);
+           i--;}
+       }
+        
+        if(v.size() == 0)
+            return NULL;
+        
+        ListNode *root = NULL;
+        for(auto x:v){
+            root = help(root,x);
+        }
+        return root;
+        
+            
+           }
+};
