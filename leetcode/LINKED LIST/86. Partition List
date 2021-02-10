@@ -1,0 +1,23 @@
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        ListNode *temp = new ListNode(0);
+        ListNode *tp = temp;
+        ListNode *kush = new ListNode(0);
+        ListNode *kk = kush;
+        while(head!=NULL){
+            if(head->val<x){
+                tp->next = head;
+                tp = tp->next;
+            }
+            else{
+                kk->next = head;
+                kk = kk->next;
+            }
+            head = head->next;
+        }
+        kk->next = NULL;
+        tp->next = kush->next;
+        return temp->next;
+    }
+};
