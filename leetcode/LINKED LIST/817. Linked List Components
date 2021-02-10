@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int numComponents(ListNode* head, vector<int>& G) {
+       unordered_set<int> s{G.begin(),G.end()};
+        ListNode *cur=head;
+        int ans=0;
+        while(cur!=NULL){
+            if(s.count(cur->val) && (cur->next==NULL || !s.count(cur->next->val)))
+                ans++;
+            cur=cur->next;
+        }
+        return ans;
+    }
+};
