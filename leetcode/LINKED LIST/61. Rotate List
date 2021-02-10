@@ -1,0 +1,39 @@
+class Solution {
+public:
+    
+    ListNode *help(ListNode *root,int x){
+        
+        
+        
+        ListNode *temp = new ListNode(x);
+        if(root == NULL)
+            return temp;
+        ListNode *k = root;
+        while(k->next !=NULL){
+            k = k->next;
+        }
+        k->next = temp;
+        temp->next = NULL;
+        return root;
+    }
+    
+    ListNode* rotateRight(ListNode* head, int k) {
+        if(head == NULL)
+            return head;
+        
+        vector<int>v;
+        while(head!=NULL){
+            v.push_back(head->val);
+            head = head->next;
+        }
+         // k = k-1;
+       std::rotate(v.rbegin(),v.rbegin()+(k % v.size()),v.rend());
+       
+        
+        ListNode *root = NULL;
+        for(auto x:v){
+            root = help(root,x);
+        }
+        return root;
+    }
+};
