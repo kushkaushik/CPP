@@ -1,0 +1,67 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+string call(string &s){
+  if(s.size() == 1)
+  {
+    if(isupper(s[0]))
+    s[0] = tolower(s[0]);
+
+    else
+    s[0] = toupper(s[0]);
+    
+
+    return s;
+  }
+  if(islower(s[0])){
+    int c = 0;
+    for(int i =1;i<s.size();i++){
+      if(isupper(s[i])){
+        c++;
+      }
+    }
+    if(c+1 == s.size())
+    {
+      s[0] = toupper(s[0]);
+      transform(s.begin()+1,s.end(),s.begin()+1,::tolower);
+      return s;
+    }
+  }
+
+  
+    else if(isupper(s[0])){
+      int  c  = 0,u = 0;
+      for(int i =1;i<s.size();i++)
+      {
+        if(islower(s[i]))
+        c++;
+        else
+        u++;
+      }
+
+
+    if(c+1 == s.size())
+    {transform(s.begin()+1,s.end(),s.begin()+1,::tolower);
+    }
+    else if(u+1 == s.size()){
+      transform(s.begin(),s.end(),s.begin(),::tolower);
+    }
+    return s;
+    }
+
+    
+     
+    
+
+return s;
+
+
+}
+
+int main(){
+string s;cin>>s;
+
+string temp = call(s);
+cout<<temp;
+  return 0;
+}
