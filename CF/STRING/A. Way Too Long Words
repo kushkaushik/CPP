@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+ 
+   int i;
+   cin>>i;
+   string a;
+   while(i-->0){
+       cin>>a;
+    if(a.length()>10){
+        cout<<a.substr(0,1)<<a.substr(1,a.length()-2).length()<<a.substr(a.length()-1,a.length())<<endl;
+    }
+    else{
+        cout<<a<<endl;
+    }
+ 
+ 
+}
+}
