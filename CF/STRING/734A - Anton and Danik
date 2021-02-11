@@ -1,0 +1,23 @@
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int n;
+cin>>n;
+string s;cin>>s;
+int a = 0,d = 0;
+for(auto x:s){
+if(x == 'A')
+a++;
+else
+d++;
+}
+if(a== d)
+cout<<"Friendship"<<endl;
+else if(a<d)
+cout<<"Danik"<<endl;
+else
+cout<<"Anton"<<endl;
+  return 0;
+}
