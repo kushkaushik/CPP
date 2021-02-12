@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    map<string,int>mp;
+    mp["Tetrahedron"] = 4;
+    mp["Cube"] = 6;
+    mp["Octahedron"] = 8;
+    mp["Dodecahedron"] = 12;
+    mp["Icosahedron"] = 20;
+    int i;cin>>i;
+    int sum = 0;
+    while(i--){
+        string s;cin>>s;
+        sum+=mp[s];
+    }
+    cout<<sum<<endl;
+}
