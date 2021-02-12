@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+char s,t = 'a';
+int sum =0;
+while(cin>>s){
+    sum+=min(abs(s-t),26-(abs(s-t)));
+    t = s;
+
+}
+cout<<sum;
+    return 0;
+}
