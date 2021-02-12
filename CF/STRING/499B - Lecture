@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int n,m;cin>>n>>m;
+unordered_map<string,string>um;
+while(m--){
+    string s1,s2;cin>>s1>>s2;
+    um[s1] = s2;
+}
+vector<string>vs(n);
+for(int i=0;i<n;i++)
+cin>>vs[i];
+
+unordered_map<string,string>::iterator it;
+
+vector<string>st;
+for(int i = 0;i<n;i++){
+auto x = um.find(vs[i]);
+if(x!=um.end()){
+    int a= x->first.size();
+    int b = x->second.size();
+    int temp = min(a,b);
+    if(temp == a)
+st.push_back(x->first);
+else
+st.push_back(x->second);
+}
+else{
+
+  int a= x->first.size();
+    int b = x->second.size();
+    int temp = min(a,b);
+    if(temp == a)
+st.push_back(x->first);
+else
+st.push_back(x->second);
+
+    // st.push_back(min(x->first,x->second));
+}
+
+}
+for(auto x:st)
+cout<<x<<" ";
+
+return 0;
+}
