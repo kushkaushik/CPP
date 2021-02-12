@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;cin>>n;
+    string s;cin>>s;
+    transform(s.begin(),s.end(),s.begin(),::tolower);
+    unordered_set<char>us;
+    int c = 0;
+    
+    for(int i =0;i<s.size();i++){
+        if(us.find(s[i]) == us.end()){
+            us.insert(s[i]);
+        }
+    }
+cout<<((us.size() == 26)?"YES":"NO");
+
+
+}
