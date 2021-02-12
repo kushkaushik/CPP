@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string call(string &s){
+    if(s.size() == 2)
+    return s;
+
+    for(int i =2;i<s.size();i+=2){
+        s.erase(s.begin()+i);
+        i--;
+
+    }
+    return s;
+}
+
+
+int main(){
+int n;cin>>n;
+while(n--){
+    string s;cin>>s;
+    string temp = call(s);
+    cout<<temp<<endl;
+}
+
+return 0;
+}
