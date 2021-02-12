@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string s;cin>>s;
+int m = s.find("AB");
+int n = s.find("BA");
+if((m!=-1 && s.find("BA",m+2)!=-1) || n!=-1 && s.find("AB",n+2)!=-1)
+cout<<"YES"<<endl;
+else
+cout<<"NO"<<endl;
+
+    return 0;
+}
