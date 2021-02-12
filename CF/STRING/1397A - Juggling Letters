@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main(){
+	int t1;cin>>t1;
+	while(t1--){
+		int n,n2,f=1,ls[26]={};cin>>n;n2=n;
+		while(n2--){
+			string s;cin>>s;
+			for(char x:s)ls[x-'a']++;
+		}
+		for(int x:ls){ if(x%n) f=0;}
+		cout<<(f? "YES":"NO")<<"\n";
+	}
+ 
+}
