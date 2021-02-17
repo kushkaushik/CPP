@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int n;cin>>n;
+unordered_map<string,int>um;
+string s;
+while(n--){
+    cin>>s;
+    if(um[s]++){
+        cout<<s<<um[s]-1<<endl;
+    }
+    else
+    cout<<"OK"<<endl;
+}
+
+    return 0;
+}
