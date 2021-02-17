@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int mx = INT_MIN;
+map<string,int>mp1,mp2;
+int n;cin>>n;
+int temp[n];
+string str[n];
+for(int i=0;i<n;i++)
+{
+    cin>>str[i]>>temp[i];
+    mp1[str[i]]+=temp[i];
+ 
+}
+for(auto x:mp1){
+    mx = max(mx,x.second);
+}
+for(int i=0;i<n;i++){
+    mp2[str[i]]+=temp[i];
+   if(mp1[str[i]] == mx && mp2[str[i]]>=mx)
+   {cout<<str[i]<<endl;
+   break;}
+}
+ 
+}
