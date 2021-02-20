@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> diStringMatch(string S) {
+        int n = S.size();
+        int low = 0,high = n;
+        vector<int>v;
+        for(auto x:S){
+            if(x == 'I')
+                v.push_back(low++);
+            else
+                v.push_back(high--);
+        }
+        v.push_back(low);
+        return v;
+    }
+};
