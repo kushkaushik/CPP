@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string restoreString(string s, vector<int>& v) {
+        
+        priority_queue<pair<int,char>,vector<pair<int,char>>,greater<pair<int,char>>>pq;
+string temp = "";
+for(int i = 0;i<v.size();i++)
+pq.push({v[i],s[i]});
+
+while(pq.empty()== false)
+{
+    temp+=pq.top().second;
+    pq.pop();
+}
+return temp;
+    }
+};
